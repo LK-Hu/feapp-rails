@@ -44,13 +44,14 @@ group :development do
 end
 
 group :development, :test do
-  gem 'sqlite3', '~> 1.3.9'
+  # gem 'sqlite3', '~> 1.3.9'
+  gem 'pg', '~> 0.17.1'
   gem 'rspec-rails', '~> 3.1.0'
   gem 'factory_girl', '~> 4.5.0'
 end
 
 group :production do
-  gem 'pg', '0.17.1'
+  gem 'pg', '~> 0.17.1'
   # for ruby on rails to work on all platforms
   gem "rails_12factor", "~>0.0.3"
 end
