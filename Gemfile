@@ -30,6 +30,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Devise for authentication
 gem 'devise', '~> 3.4.1'
 
+gem 'pg', '~> 0.17.1'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -45,13 +47,11 @@ end
 
 group :development, :test do
   # gem 'sqlite3', '~> 1.3.9'
-  gem 'pg', '~> 0.17.1'
   gem 'rspec-rails', '~> 3.1.0'
   gem 'factory_girl', '~> 4.5.0'
 end
 
 group :production do
-  gem 'pg', '~> 0.17.1'
   # for ruby on rails to work on all platforms
   gem "rails_12factor", "~>0.0.3"
 end
