@@ -30,7 +30,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Devise for authentication
 gem 'devise', '~> 3.4.1'
 
-gem 'pg', '~> 0.17.1'
+gem 'pg', '0.18.1'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+#, '~> 0.17.1'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -67,7 +69,7 @@ gem "active_model_serializers", '~> 0.9.0'
 # install bootstrap CSS toolkit for Rails 3.1 Asset Pipeline
 # gem 'twitter-bootstrap-rails', '3.2.0'
 
-ruby '2.1.2'
+#ruby '2.1.2'
 #ruby-gemset=beauty_circlee
 
 
