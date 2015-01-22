@@ -17,3 +17,9 @@
 
 # Ignore 
 /bak
+
+# Ignore credential info
+# IMPORTANT
+# These files are required for Rails Env Setup
+/config/database.yml
+/config/secrets.yml
