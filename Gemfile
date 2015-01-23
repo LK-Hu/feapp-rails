@@ -69,7 +69,7 @@ gem "active_model_serializers", '~> 0.9.0'
 # install bootstrap CSS toolkit for Rails 3.1 Asset Pipeline
 # gem 'twitter-bootstrap-rails', '3.2.0'
 
-#ruby '2.1.2'
+ruby '2.1.5'
 #ruby-gemset=beauty_circlee
 
 
