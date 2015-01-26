@@ -34,6 +34,9 @@ gem 'pg', '0.18.1'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 #, '~> 0.17.1'
 
+# Use unicorn as the app server
+# gem 'unicorn'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -55,11 +58,6 @@ group :production do
   gem "rails_12factor", "~>0.0.3"
 end
 
-# platforms :ruby do # linux
-#   # Use unicorn as the app server
-#   gem 'unicorn', '4.8.3'
-# end
-
 gem "active_model_serializers", '~> 0.9.0'
 # gem "ember-rails", "~>0.15"
 # gem "ember-source", "~>1.1"
@@ -71,7 +69,7 @@ gem "active_model_serializers", '~> 0.9.0'
 # install bootstrap CSS toolkit for Rails 3.1 Asset Pipeline
 # gem 'twitter-bootstrap-rails', '3.2.0'
 
-ruby '2.1.5'
+#ruby '2.1.2'
 #ruby-gemset=beauty_circlee
 
 
