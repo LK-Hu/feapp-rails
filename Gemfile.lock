@@ -35,6 +35,7 @@ GEM
     arel (5.0.1.20140414130214)
     bcrypt (3.1.9)
     bcrypt (3.1.9-x64-mingw32)
+    bcrypt (3.1.9-x86-mingw32)
     builder (3.2.2)
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -60,6 +61,7 @@ GEM
     orm_adapter (0.5.0)
     pg (0.18.1)
     pg (0.18.1-x64-mingw32)
+    pg (0.18.1-x86-mingw32)
     polyglot (0.3.5)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -143,6 +145,7 @@ GEM
 PLATFORMS
   ruby
   x64-mingw32
+  x86-mingw32
 
 DEPENDENCIES
   active_model_serializers (~> 0.9.0)
