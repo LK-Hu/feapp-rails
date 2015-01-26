@@ -31,11 +31,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 3.4.1'
 
 gem 'pg', '0.18.1'
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+gem 'tzinfo-data', '1.2014.10'
 #, '~> 0.17.1'
-
-# Use unicorn as the app server
-# gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -56,6 +53,11 @@ end
 group :production do
   # for ruby on rails to work on all platforms
   gem "rails_12factor", "~>0.0.3"
+end
+
+platforms :ruby do # linux
+  # Use unicorn as the app server
+  gem 'unicorn', '4.8.3'
 end
 
 gem "active_model_serializers", '~> 0.9.0'
