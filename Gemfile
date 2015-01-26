@@ -31,9 +31,13 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 3.4.1'
 
 gem 'pg', '0.18.1'
+
+# Windows needs tzinfo-data
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 #, '~> 0.17.1'
 
+# for cross domain requests.
+gem 'rack-cors', '~> 0.3.1', require: 'rack/cors'
 # Use unicorn as the app server
 # gem 'unicorn'
 
