@@ -31,7 +31,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 3.4.1'
 
 gem 'pg', '0.18.1'
-gem 'tzinfo-data', '1.2014.10'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 #, '~> 0.17.1'
 
 # Use Capistrano for deployment
