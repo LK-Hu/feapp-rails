@@ -55,10 +55,10 @@ group :production do
   gem "rails_12factor", "~>0.0.3"
 end
 
-platforms :ruby do # linux
-  # Use unicorn as the app server
-  gem 'unicorn', '4.8.3'
-end
+# platforms :ruby do # linux
+#   # Use unicorn as the app server
+#   gem 'unicorn', '4.8.3'
+# end
 
 gem "active_model_serializers", '~> 0.9.0'
 # gem "ember-rails", "~>0.15"
