@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Api::V1::UsersController do
+describe V1::UsersController do
   describe "GET #show" do
     before(:each) do 
       @user = FactoryGirl.create :user
