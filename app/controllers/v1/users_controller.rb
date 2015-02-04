@@ -8,8 +8,9 @@ class V1::UsersController < ApplicationController
 
   def create
     user = User.new(user_params) 
-    if user.save
-      render json: user, status: 201#, location: [:api, user] 
+     if user.save
+	 render :json=> {:success=>true, :auth_token=>user.authentication_token, :email=>user.email, status: 201}
+      return 
     else
       render json: { errors: user.errors }, status: 422
     end
