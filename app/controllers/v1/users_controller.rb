@@ -7,8 +7,8 @@ class V1::UsersController < ApplicationController
 
   def create
     user = User.new(user_params) 
-     if user.save
-	 render :json=> {:success=>true, :email=>user.email, status: 201}
+    if user.save
+      render json: { success: true, email: user.email }, status: 201
       return 
     else
       render json: { errors: user.errors }, status: 422
@@ -19,7 +19,7 @@ class V1::UsersController < ApplicationController
     user = current_user
 
     if user.update(user_params)
-      render json: user, status: 200#, location: [:api, user] 
+      render json: user, status: 200
     else
       render json: { errors: user.errors }, status: 422
     end
