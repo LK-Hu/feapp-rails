@@ -1,5 +1,5 @@
 class V1::SessionsController < Devise::SessionsController  
-prepend_before_filter :require_no_authentication, :only => [:create ]
+  prepend_before_filter :require_no_authentication, :only => [:create ]
   before_filter :ensure_params_exist
 
   respond_to :json
@@ -31,11 +31,11 @@ prepend_before_filter :require_no_authentication, :only => [:create ]
 	token_deleted=user.save
     signed_out = sign_out(user)
 	
-	if signed_out && token_deleted
-		render json: "Successfully logged out", status: 200
-	else
-		render json: "Error logging out", status: 400
-	end
+    if signed_out && token_deleted
+      render json: "Successfully logged out", status: 200
+    else
+      render json: "Error logging out", status: 400
+    end
   end  
 
   
