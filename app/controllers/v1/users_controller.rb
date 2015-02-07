@@ -1,5 +1,4 @@
 class V1::UsersController < ApplicationController
-  before_action :authenticate_with_token!, only: [:update, :destroy]
   respond_to :json
 
   def show
@@ -9,7 +8,7 @@ class V1::UsersController < ApplicationController
   def create
     user = User.new(user_params) 
      if user.save
-	 render :json=> {:success=>true, :auth_token=>user.authentication_token, :email=>user.email, status: 201}
+	 render :json=> {:success=>true, :email=>user.email, status: 201}
       return 
     else
       render json: { errors: user.errors }, status: 422
