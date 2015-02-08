@@ -3,7 +3,6 @@
 # Ref: http://soryy.com/blog/2014/apis-with-devise/
 class V1::SessionsController < Devise::SessionsController 
   prepend_before_action :require_no_authentication, :only => [:create, :new]
-  respond_to :json
   skip_before_action :verify_authenticity_token
 
   def show
@@ -14,7 +13,8 @@ class V1::SessionsController < Devise::SessionsController
     self.resource = resource_class.new(sign_in_params)
     clean_up_passwords(resource)
     yield resource if block_given?
-    respond_with(resource, serialize_options(resource))
+    # respond_with(resource, serialize_options(resource))
+    render json: { success: true, auth_token: resource.authentication_token, email: resource.email }, status: 201
   end
   
   def create
@@ -23,7 +23,7 @@ class V1::SessionsController < Devise::SessionsController
     return invalid_login_attempt unless resource
 
     if resource.valid_password?(params[:user][:password])
-      render json: { success: true, auth_token: resource.authentication_token, email: resource.email }, status: created
+      render json: { success: true, auth_token: resource.authentication_token, email: resource.email }, status: 201
     else
       invalid_login_attempt
     end
