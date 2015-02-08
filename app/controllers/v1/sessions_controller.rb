@@ -3,7 +3,6 @@
 # Ref: http://soryy.com/blog/2014/apis-with-devise/
 class V1::SessionsController < Devise::SessionsController 
   prepend_before_action :require_no_authentication, :only => [:create, :new]
-  before_action :ensure_params_exist
   respond_to :json
   skip_before_action :verify_authenticity_token
 
