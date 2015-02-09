@@ -49,9 +49,9 @@ protected
   end
 
   def resource_from_credentials
-    data = { email: params[:email]}
+    data = { email: params[:user][:email]}
     if res = resource_class.find_for_database_authentication(data)
-      if res.valid_password?(params[:password])
+      if res.valid_password?(params[:user][:password])
         res
       end
     end
