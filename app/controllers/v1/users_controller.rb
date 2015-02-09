@@ -1,5 +1,4 @@
 class V1::UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:create]
   def show
     respond_with User.find(params[:id]) 
   end
