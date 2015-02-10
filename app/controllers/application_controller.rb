@@ -8,22 +8,23 @@ class ApplicationController < ActionController::Base
   respond_to :json
 
   def authenticate_user_from_token!
-    user_email = request.headers['X-API-EMAIL'].presence
-    user_auth_token = request.headers['X-API-TOKEN'].presence
-    user = user_email && User.find_by_email(user_email)
+    authenticate_with_http_token do |token, options|
+      user_name = options[:user_name].presence
+      user = user_name && User.find_by_user_name(user_name)
 
-    # Notice how we use Devise.secure_compare to compare the token
-    # in the database with the token given in the params, mitigating
-    # timing attacks
-    if user && Devise.secure_compare(user.authentication_token, user_auth_token)
-      sign_in(user, store: false)
+      # Notice how we use Devise.secure_compare to compare the token
+      # in the database with the token given in the params, mitigating
+      # timing attacks
+      if user && Devise.secure_compare(user.authentication_token, token)
+        sign_in(user, store: false)
+      end
     end
   end
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :user_name
-    devise_parameter_sanitizer.for(:sign_in) << :user_name
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:user_name, :email, :password, :password_confirmation) }
+    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:user_name, :password) }
   end
 end

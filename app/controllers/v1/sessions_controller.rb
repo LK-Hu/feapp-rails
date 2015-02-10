@@ -14,7 +14,7 @@ class V1::SessionsController < Devise::SessionsController
     clean_up_passwords(resource)
     yield resource if block_given?
     # respond_with(resource, serialize_options(resource))
-    render json: { success: true, auth_token: resource.authentication_token, email: resource.email }, status: 201
+    render json: { success: true, auth_token: resource.authentication_token, user_name: resource.user_name }, status: 201
   end
   
   def create
@@ -23,7 +23,7 @@ class V1::SessionsController < Devise::SessionsController
     return invalid_login_attempt unless resource
 
     if resource.valid_password?(params[:user][:password])
-      render json: { success: true, auth_token: resource.authentication_token, email: resource.email }, status: 201
+      render json: { success: true, auth_token: resource.authentication_token, user_name: resource.user_name }, status: 201
     else
       invalid_login_attempt
     end
@@ -49,7 +49,7 @@ protected
   end
 
   def resource_from_credentials
-    data = { email: params[:user][:email]}
+    data = { user_name: params[:user][:user_name]}
     if res = resource_class.find_for_database_authentication(data)
       if res.valid_password?(params[:user][:password])
         res
