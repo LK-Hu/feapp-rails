@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-	devise_for :users, :controllers => { :sessions => "v1/sessions" }
+	devise_for :users, controllers: { sessions: 'sessions'}, defaults: { format: 'json' }
 	devise_scope :user do
 	  namespace :v1, defaults: { format: :json } do
 		resources :families
