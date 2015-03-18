@@ -49,15 +49,19 @@ protected
 
   def invalid_login_attempt
     warden.custom_failure!
-    render json: { success: false, message: "Error with your login or password" }, status: 401
+    render json: { success: false, message: "username or password is not correct." }, status: 401
   end
 
   def resource_from_credentials
-    data = { user_name: params[:user][:user_name]}
-    if res = resource_class.find_for_database_authentication(data)
-      if res.valid_password?(params[:user][:password])
-        res
+    begin
+      data = { user_name: params[:user][:user_name]}
+      if res = resource_class.find_for_database_authentication(data)
+        if res.valid_password?(params[:user][:password])
+          res
+        end
       end
+    rescue Exception
+      nil
     end
   end
 end
