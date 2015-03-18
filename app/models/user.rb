@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 		 
 	validates :user_name, presence: true, uniqueness: true
 	
+	has_and_belongs_to_many :families
+	
   def ensure_authentication_token!
     if authentication_token.blank?
       self.authentication_token = generate_authentication_token
