@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 	devise_scope :user do
 	  namespace :v1, defaults: { format: :json } do
 		resources :families
+		resources :accounts
 		resources :users
 		resources :sessions
 		
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
 		post 'families/leave', to: 'families#leave'
 		get 'families/user_families/:id', to: 'families#user_families'
 		get 'users/family_users/:id', to: 'users#family_users'
+		get 'accounts/user_accounts/:id', to: 'accounts#user_accounts'
 		
 	  end
 	end
