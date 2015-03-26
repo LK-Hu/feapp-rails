@@ -17,7 +17,7 @@ class SessionsController < Devise::SessionsController
     clean_up_passwords(resource)
     yield resource if block_given?
     # respond_with(resource, serialize_options(resource))
-    render json: { success: true, auth_token: resource.authentication_token, user_name: resource.user_name }, status: 201
+    render json: { auth_token: resource.authentication_token, user_name: resource.user_name }, status: 201
   end
   
   def create
