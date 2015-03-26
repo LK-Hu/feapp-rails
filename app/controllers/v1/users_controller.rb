@@ -8,14 +8,18 @@ prepend_before_action :authenticate_user!, :except => [:create, :new, :family_us
   def create
     user = User.new(user_params) 
     if user.save
-	  account_params = { :user_id=>user.id, :account_type=>"savings" }
-	  account = Account.new(account_params) 
-	  if account.save
-		render json: user , status: 201
-		return 
-	  else
-		render json: { errors: account.errors }, status: 422
-	  end
+		if user.role=="child"
+		  account_params = { :user_id=>user.id, :account_type=>"savings" }
+		  account = Account.new(account_params) 
+		  if account.save
+			render json: user , status: 201
+			return 
+		  else
+			render json: { errors: account.errors }, status: 422
+		  end
+		else
+			render json: user , status: 201
+		end
 	else
 		render json: { errors: user.errors }, status: 422
 	end

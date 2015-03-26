@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 	
 	has_and_belongs_to_many :families
 	has_many :accounts
+	has_many :transactions
 	
   def ensure_authentication_token!
     if authentication_token.blank?

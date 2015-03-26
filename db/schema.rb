@@ -17,12 +17,14 @@ ActiveRecord::Schema.define(version: 20150323183124) do
   enable_extension "plpgsql"
 
   create_table "accounts", force: true do |t|
-    t.integer  "user_id",         null: false
-    t.string   "account_type",    null: false
+    t.integer  "user_id",              null: false
+    t.string   "account_type",         null: false
     t.integer  "balance"
-    t.integer  "interest"
+    t.integer  "accumulated_interest"
+    t.integer  "interest_rate"
     t.string   "interest_period"
     t.integer  "total_credit"
+    t.datetime "last_interest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
