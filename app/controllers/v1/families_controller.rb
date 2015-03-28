@@ -1,7 +1,5 @@
 class V1::FamiliesController < ApplicationController
-prepend_before_action :authenticate_user!, :except => [:create, :join, :leave, :user_families]
-
-    def show
+  def show
     respond_with Family.find(params[:id]) 
   end
 
