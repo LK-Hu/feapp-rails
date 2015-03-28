@@ -1,5 +1,4 @@
 class V1::UsersController < ApplicationController
-prepend_before_action :authenticate_user!, :except => [:create, :new, :family_users]
 
   def show
     respond_with User.find(params[:id]) 

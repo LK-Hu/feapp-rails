@@ -1,7 +1,6 @@
 class V1::TransactionsController < ApplicationController
-prepend_before_action :authenticate_user!, :except => [:create, :user_transactions, :account_transactions, :approver_transactions]
 
-    def show
+  def show
     respond_with Transaction.find(params[:id]) 
   end
 
