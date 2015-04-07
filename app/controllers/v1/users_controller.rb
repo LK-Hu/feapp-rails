@@ -1,7 +1,17 @@
 class V1::UsersController < ApplicationController
 
+  def index
+    begin
+      if params['current_user'] == 'true'
+        respond_with current_user, status: 200
+      end
+    rescue Exception
+      nil
+    end
+  end
+
   def show
-    respond_with User.find(params[:id]) 
+    respond_with User.find(params[:id]), status: 200
   end
 
   def create
