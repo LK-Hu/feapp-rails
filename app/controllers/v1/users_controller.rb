@@ -2,8 +2,10 @@ class V1::UsersController < ApplicationController
 
   def index
     begin
-      if params['current_user'] == 'true'
+      if params[:user_name] == current_user.user_name
         respond_with current_user, status: 200
+      else
+        render json: User.all, status: 200
       end
     rescue Exception
       nil

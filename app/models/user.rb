@@ -4,10 +4,11 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-		 
 	validates :user_name, presence: true, uniqueness: true
+  include ActiveModel::Serialization
 	
-	has_and_belongs_to_many :families
+	has_many :families, through: :family_user_relations
+  has_many :family_user_relations
 	has_many :accounts
 	has_many :transactions
 	
