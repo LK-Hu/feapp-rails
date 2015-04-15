@@ -17,3 +17,6 @@
 
 # Ignore all the view folders
 /app/views/users
+
+# misc
+Gemfile.lock
